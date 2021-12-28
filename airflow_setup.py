@@ -1,5 +1,5 @@
 import os
-from rich import print
+from rich import print as rprint
 
 ###############
 # Constants
@@ -7,6 +7,11 @@ from rich import print
 VIRT_ENV_NAME = "sandbox"
 STABLE_HELM_REPO = "https://charts.helm.sh/stable"
 USER_NAME = "af_workstation"
+
+MSG_COLOR = "magenta"
+
+def print(text: str):
+    rprint(f"[{MSG_COLOR}]{text}[/{MSG_COLOR}]")
 
 ##############################
 # Setup virtual Environment
@@ -51,3 +56,10 @@ os.system(f"helm repo add stable {STABLE_HELM_REPO}")
 ###################
 print(f"Setting git user.name to '{USER_NAME}'")
 os.system(f"git config --global user.name '{USER_NAME}'")
+
+###################
+# Upgrade AWS CLI Tools
+###################
+print("Upgrading AWS CLI and adding additional tooling.")
+os.system("pip3 install --upgrade awscli --user && hash -r")
+os.system("sudo yum -y install jq gettext bash-completion moreutils")
