@@ -38,8 +38,8 @@ def print(text: str):
 os.system(f"aws configure set aws_access_key_id {AWS_ACCOUNT_ID}")
 os.system(f"aws configure set aws_secret_access_key {AWS_SECRET_ACCESS_KEY}")
 os.system(f"aws configure set region {AWS_REGION}")
-os.system(f"""echo "export ACCOUNT_ID=${AWS_ACCOUNT_ID}" | tee -a ~/.bash_profile""")
-os.system(f"""export AWS_REGION=${AWS_REGION}" | tee -a ~/.bash_profile""")
+os.system(f"""echo 'export ACCOUNT_ID={AWS_ACCOUNT_ID}' | tee -a ~/.bash_profile""")
+os.system(f"""echo 'export AWS_REGION={AWS_REGION}' | tee -a ~/.bash_profile""")
 
 ##############################
 # Setup virtual Environment
