@@ -29,7 +29,7 @@ MSG_COLOR_START = "\\033[0;35;40m"
 MSG_COLOR_STOP = "\\033[0;0m'"
     
 def exec(cmd: str) -> None:
-    subprocess.call(cmd)
+    subprocess.call(cmd.split(" "))
     
 def print(text: str):
     exec(f"echo '{MSG_COLOR_START}{text}{MSG_COLOR_STOP}'")
