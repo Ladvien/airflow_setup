@@ -30,7 +30,10 @@ MSG_COLOR = "magenta"
 def print(text: str):
     rprint(f"[{MSG_COLOR}]{text}[/{MSG_COLOR}]")
 
-
+################################
+# Switch to user dir
+################################
+os.system(f"cd /home/{OS_USER_NAME}")
 
 ######################################
 # Configure AWS CLI
