@@ -32,7 +32,7 @@ def exec(cmd: str) -> None:
     subprocess.call(cmd)
     
 def print(text: str):
-    rprint(f"echo '{MSG_COLOR_START}{text}{MSG_COLOR_STOP}'")
+    exec(f"echo '{MSG_COLOR_START}{text}{MSG_COLOR_STOP}'")
 
 ################################
 # Switch to user dir
