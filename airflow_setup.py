@@ -28,9 +28,15 @@ USER_NAME = "af_workstation"
 MSG_COLOR_START = "\\033[0;35;40m"
 MSG_COLOR_STOP = "\\033[0;0m'"
     
-def exec(cmd: str) -> None:
-    subprocess.call(cmd.split(" "))
-    
+def exec(cmd: str) -> tuple:
+    process = subprocess.Popen(cmd.split(" "),
+                     stdout=subprocess.PIPE, 
+                     stderr=subprocess.PIPE,
+                     universal_newlines=True
+                     )
+    stdout, stderr = process.communicate()
+    return (stdout, stderr)
+
 def print(text: str):
     exec(f"echo '{MSG_COLOR_START}{text}{MSG_COLOR_STOP}'")
 
