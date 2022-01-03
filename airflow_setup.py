@@ -1,5 +1,22 @@
 import os
+import argparse
 from rich import print as rprint
+
+###############
+# Parse args
+###############
+parser = argparse.ArgumentParser()
+parser.add_argument('--user', '-u', help="The user name for using workstation.", type= str)
+parser.add_argument('--region', '-r', help="AWS region of workstation operations.", type=str)
+parser.add_argument('--aws_id', '-i', help="aws_account_id of workstation operations.", type=str)
+parser.add_argument('--aws_secret', '-s', help="aws_secrey_access_key of workstation operations.", type=str)
+
+args = parser.parse_args()
+OS_USER_NAME = args.user
+AWS_ACCOUNT_ID = args.aws_id
+AWS_REGION = args.region
+AWS_SECRET_ACCESS_KEY = args.aws_secret
+
 
 ###############
 # Constants
@@ -12,6 +29,17 @@ MSG_COLOR = "magenta"
 
 def print(text: str):
     rprint(f"[{MSG_COLOR}]{text}[/{MSG_COLOR}]")
+
+
+
+######################################
+# Configure AWS CLI
+######################################
+os.system(f"aws configure set aws_access_key_id {AWS_ACCOUNT_ID}")
+os.system(f"aws configure set aws_secret_access_key {AWS_SECRET_ACCESS_KEY}")
+os.system(f"aws configure set region {AWS_REGION}")
+os.system(f"""echo "export ACCOUNT_ID=${AWS_ACCOUNT_ID}" | tee -a ~/.bash_profile""")
+os.system(f"""export AWS_REGION=${AWS_REGION}" | tee -a ~/.bash_profile""")
 
 ##############################
 # Setup virtual Environment
