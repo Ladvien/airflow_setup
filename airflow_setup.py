@@ -60,7 +60,7 @@ os.system(f"""echo 'export AWS_REGION={AWS_REGION}' | tee -a ~/.bash_profile""")
 ##############################
 print(f"Setting up virtual environment: {VIRT_ENV_NAME}")
 print(f"Activate with: source .{VIRT_ENV_NAME}/bin/activate")
-os.system("pip3 install --upgrade pip'")
+os.system("pip3 install --upgrade pip")
 os.system(f"python3 -m venv .{VIRT_ENV_NAME}")
 os.system(f"source .{VIRT_ENV_NAME}/bin/activate")
 
