@@ -63,7 +63,7 @@ os.system("sudo mv /tmp/eksctl /usr/local/bin")
 ############################################
 print("Installing kubectl")
 print("For info visit: https://kubernetes.io/docs/tasks/tools/")
-os.system("""curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.18.2/bin/linux/amd64/kubectl """)
+os.system("""sudo curl --silent --location https://storage.googleapis.com/kubernetes-release/release/v1.18.2/bin/linux/amd64/kubectl """)
 os.system("sudo chmod +x ./kubectl")
 os.system("sudo mv ./kubectl /usr/local/bin/kubectl")
 
