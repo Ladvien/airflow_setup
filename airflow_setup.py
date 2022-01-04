@@ -14,9 +14,7 @@ parser.add_argument('--aws_secret', '-s', help="aws_secrey_access_key of worksta
 
 args = parser.parse_args()
 OS_USER_NAME = args.user
-AWS_ACCOUNT_ID = args.aws_id
 AWS_REGION = args.region
-AWS_SECRET_ACCESS_KEY = args.aws_secret
 
 
 ###############
@@ -49,11 +47,11 @@ os.system(f"cd /home/{OS_USER_NAME}/")
 ######################################
 # Configure AWS CLI
 ######################################
-os.system(f"aws configure set aws_access_key_id {AWS_ACCOUNT_ID}")
-os.system(f"aws configure set aws_secret_access_key {AWS_SECRET_ACCESS_KEY}")
+# os.system(f"aws configure set aws_access_key_id {AWS_ACCOUNT_ID}")
+# os.system(f"aws configure set aws_secret_access_key {AWS_SECRET_ACCESS_KEY}")
 os.system(f"aws configure set region {AWS_REGION}")
-os.system(f"""echo 'export ACCOUNT_ID={AWS_ACCOUNT_ID}' | tee -a ~/.bash_profile""")
-os.system(f"""echo 'export AWS_REGION={AWS_REGION}' | tee -a ~/.bash_profile""")
+# os.system(f"""echo 'export ACCOUNT_ID={AWS_ACCOUNT_ID}' | tee -a ~/.bash_profile""")
+# os.system(f"""echo 'export AWS_REGION={AWS_REGION}' | tee -a ~/.bash_profile""")
 
 ##############################
 # Setup virtual Environment
